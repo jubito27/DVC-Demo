@@ -6,7 +6,8 @@ import os
 def load_data(data_path: str) -> pd.DataFrame:
     df = pd.read_csv(data_path , index_col=0)
     df=df.iloc[: , 3:]
-    df =  df[df['Length of Membership'] >3]
+    df =  df[df['Length of Membership'] >1]
+    df.drop(columns='Avg. Session Length' , inplace=True)
     return df
 
 def save_data(df : pd.DataFrame) -> None:
